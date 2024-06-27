@@ -46,6 +46,13 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.6.2</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -85,15 +92,8 @@
         <!-- JUnit Jupiter API and Engine -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.8.1</version> <!-- Versión actual de JUnit Jupiter -->
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.1</version> <!-- Versión actual de JUnit Jupiter -->
-            <scope>test</scope>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.3</version>
         </dependency>
 
         <!-- Mockito -->

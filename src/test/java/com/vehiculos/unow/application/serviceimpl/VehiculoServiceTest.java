@@ -1,18 +1,15 @@
 package com.vehiculos.unow.application.serviceimpl;
 
-import com.vehiculos.unow.application.port.out.db.VehiculoPortService;
 import com.vehiculos.unow.domain.dto.VehiculoDTO;
 import com.vehiculos.unow.infrastructure.adapter.out.db.model.VehiculoEntity;
 import com.vehiculos.unow.infrastructure.adapter.out.db.persistence.VehiculoRepository;
 import com.vehiculos.unow.infrastructure.exception.BussinesRuleException;
 import com.vehiculos.unow.infrastructure.exception.BussinesRuleValidationException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.validation.BindingResult;
 
