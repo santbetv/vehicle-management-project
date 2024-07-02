@@ -1,5 +1,6 @@
 package com.vehiculos.unow.infrastructure.adapter.in.web;
 
+import com.vehiculos.unow.application.port.in.web.WebPort;
 import com.vehiculos.unow.application.port.out.db.VehiculoPortService;
 import com.vehiculos.unow.domain.dto.VehiculoDTO;
 import com.vehiculos.unow.infrastructure.adapter.out.db.model.VehiculoEntity;
@@ -27,7 +28,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 @Tag(name = "Vehiculos", description = "Operaciones relacionadas con vehiculos")
-public class VehiculoRestController {
+public class VehiculoRestController implements WebPort {
     private static final Logger LOG = LoggerFactory.getLogger(VehiculoRestController.class);
 
     private VehiculoPortService vehiculoPortService;
@@ -35,7 +36,7 @@ public class VehiculoRestController {
     public VehiculoRestController(VehiculoPortService vehiculoPortService) {
         this.vehiculoPortService = vehiculoPortService;
     }
-
+    @Override
     @GetMapping("/vehiculos")
     @Operation(
             summary = "Listar todos los vehiculos",
@@ -48,6 +49,7 @@ public class VehiculoRestController {
         return vehiculoPortService.findAll();
     }
 
+    @Override
     @GetMapping("/vehiculos/search")
     @Operation(
             summary = "Buscar vehiculos por filtros",
@@ -63,6 +65,7 @@ public class VehiculoRestController {
         return vehiculoPortService.getVehiculosByFilter(marca, modelo, matricula);
     }
 
+    @Override
     @GetMapping("/vehiculos/order")
     @Operation(
             summary = "Buscar vehiculos con paginación y ordenamiento",
@@ -82,6 +85,7 @@ public class VehiculoRestController {
         return vehiculoPortService.getVehiculosByFilterOrder(marca, modelo, matricula, page, size, sortBy, sortDirection);
     }
 
+    @Override
     @GetMapping("/vehiculos/{modelo}")
     @Operation(
             summary = "Buscar vehiculos por modelo",
@@ -94,6 +98,7 @@ public class VehiculoRestController {
         return vehiculoPortService.findByModel(modelo);
     }
 
+    @Override
     @PostMapping("/vehiculos")
     @Operation(
             summary = "Crear un nuevo vehiculo",
@@ -120,6 +125,7 @@ public class VehiculoRestController {
     }
 
 
+    @Override
     @DeleteMapping("/vehiculos/{id}")
     @Operation(
             summary = "Eliminar un vehiculo",
@@ -135,6 +141,7 @@ public class VehiculoRestController {
 
     }
 
+    @Override
     @PutMapping("/vehiculos/{id}")
     @Operation(
             summary = "Actualizar un vehiculo",

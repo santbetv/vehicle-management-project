@@ -207,7 +207,7 @@ class VehiculoServiceTest {
     @Test
     void testDeleteNonExistingVehiculo() {
         // Arrange
-        Long id = 1L;
+        Long id = 166L;
 
         // Simular que el vehículo no existe en la base de datos
         Mockito.when(vehiculoRepository.findById(id)).thenReturn(Optional.empty());

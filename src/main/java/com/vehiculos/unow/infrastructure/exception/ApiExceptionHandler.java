@@ -23,6 +23,13 @@ public class ApiExceptionHandler {
         return new ResponseEntity(response, HttpStatus.BAD_GATEWAY);
     }
 
+    @ExceptionHandler(BussinesRuleException.class)
+    public ResponseEntity<ApiExeceptionResponse> handleBussinesRuleException(BussinesRuleException ex) {
+        ApiExeceptionResponse response = new ApiExeceptionResponse(ex.getType(),ERROR_VALIDACION, CODIGO_ERROR,
+                ERROR_VALIDACION_NO_EXISTE);
+        return new ResponseEntity(response, HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(BussinesRuleValidationException.class)
     public ResponseEntity<ApiExeceptionResponse> handleBussinesRuleValidationException(BussinesRuleValidationException ex) {
 
